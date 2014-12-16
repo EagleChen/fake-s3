@@ -102,7 +102,7 @@ module FakeS3
           if time >= Time.iso8601(real_obj.modified_date)
             response.status = 304
             return
-          end 
+          end
         end
 
         response.status = 200
@@ -354,10 +354,10 @@ module FakeS3
       s_req.path = webrick_req.path
       s_req.is_path_style = true
 
-      if !@root_hostnames.include?(host)
-        s_req.bucket = host.split(".")[0]
-        s_req.is_path_style = false
-      end
+#      if !@root_hostnames.include?(host)
+#        s_req.bucket = host.split(".")[0]
+#        s_req.is_path_style = false
+#      end
 
       s_req.http_verb = webrick_req.request_method
 
